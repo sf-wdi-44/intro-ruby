@@ -338,7 +338,10 @@ WAR_QUOTE = "What is it good for?" # warning: already initialized constant
 
 Constants are meant to be defined _only once_, so they're often used for things like storing application settings, or other stuff we don't intend to change.
 
-> You'll see many other conventions of Ruby as you learn it!
+
+> JavaScript's newest version recently added constants with the `const` reserved word.
+
+**You'll see many other conventions of Ruby as you learn it!**
 
 
 
