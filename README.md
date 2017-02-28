@@ -10,7 +10,7 @@ Location: SF
 ### Why is this important?
 <!-- framing the "why" in big-picture/real world examples -->
 *This workshop is important because:*
-Ruby is a powerful and popular language for server-side web development. It's the foundation for Ruby on Rails, one of the most prolific frameworks in the web.
+Ruby is a powerful and popular language for server-side web development. It's the foundation for Ruby on Rails, one of the most prolific frameworks in the web. It's also a good introduction to a group of languages with a very different syntax.
 
 ### What are the objectives?
 <!-- specific/measurable goal for students to achieve -->
@@ -32,8 +32,13 @@ Ruby is a powerful and popular language for server-side web development. It's th
 
 ## Ruby as a Second (or 4<sup>th</sup>) Language
 
-As we learn Ruby, it's important to revisit how we learned our first language and use that to organize the study of our new language. Learning our second programming language is a process of translating concepts, expressions, and patterns from our familiar language into our new language. Learning our first language involved more identification and comprehension of the knowledge required to implement our first programs. We should begin by organizing this knowledge to build a better understanding as we transition to Ruby.
+As we learn Ruby, it's important to revisit how we learned our first language and use that to organize the study of our new language. Learning our second programming language is a process of translating concepts, expressions, and patterns from our familiar language into our new language. 
 
+Learning our first language involved more identification and comprehension of the knowledge required to implement our first programs. We should begin by organizing this knowledge to build a better understanding as we transition to Ruby.
+
+<details><summary>Note: Why not count HTML and CSS? *click to see more!*</summary>
+> Neither HTML nor CSS is capable of handling complex calculations alone.  We couldn't use them to implement a variety of algorithms.  Formally, computer scientists would say these languages aren't [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness#Non-mathematical_usage). The bottom line is that even though HTML and CSS are programming languages, their concepts won't transfer as well to other languages. 
+</details>
 
 ## Discussion Questions
 
@@ -60,10 +65,14 @@ make_a_sentence(['You', 'are', 'already', 'experts'])
 ```
 
 
-Without knowing anything about Ruby, you can probably sort of understand how all this works:
+#### Check for Understanding 
+
+Without knowing anything about Ruby, you can probably guess how some of this works:
 
 1. What kind of object is `make_a_sentence`?
+
 1. What does `def` do?  
+
 1. What's the purpose of the line that starts with `#`?
 
 You might notice something else interesting – where are the semicolons? You don't need them!
@@ -85,7 +94,7 @@ Ruby's are like this:
 # I'm a comment, too!
 ```
 
-A "hash rocket" or "fat arrow" in a comment means the comment is showing off a value that gets returned by a method or expression:
+A "hash rocket" or "fat arrow" in a comment is a convention that means the comment shows a value that will get returned by a method or expression:
 
 ```ruby
 4 + 4
@@ -102,17 +111,15 @@ There are a lot of differences between the JavaScript and Ruby interpreters, tho
 
 We'll see more about each of these differences later.  For now, keep in mind that your intuition could mislead you - you should look at documentation _and_ experiment as you learn Ruby.
 
-
 We're going to use PRY, an interactive Ruby shell tool, so we can type some Ruby commands and see exactly what happens in real time.
 
-Open up your terminal, and from anywhere, type `gem install pry`
-then type `pry`.
+Open up your terminal, and from anywhere, type `gem install pry`, then type `pry`. This will change your terminal tab into an interactive ruby console. 
 
 *Other options for running ruby code:*
 
 1. Use `irb` (interactive ruby) in your terminal.
 
-1. Create a `.rb` file. Write your code there then run it with `ruby YOUR_FILE_NAME.rb`.
+1. Create a `.rb` file. Write your code that file, then run it with `ruby YOUR_FILE_NAME.rb`.
 
 
 
@@ -120,84 +127,103 @@ then type `pry`.
 
 ### Review
 
-1. **What are some data types you have used in JavaScript?**
+**What are some data types you have used in JavaScript?**
 
-  <details><summary>click for a list</summary>
   - **Booleans** are written as `true` and `false`
   - **Numbers** are written as `12` or `9.45`
-  - **Strings** are written as `"awesome"`
-  - Special **undefined** type for things that have never had a value.
-  - **Arrays** are written as `['x','y','z']`
-  - **Objects** are written as `{key: 'value', thing: true, stuff: [1,2,3]}`, and have a special **null**.
-  </details>
+  - **Strings** are written as `"awesome"` or `'awesome'`
+  - Special **undefined** type for things that have never had a value
+  - **Arrays** are written as `['x','y',3]`
+  - **Objects** are written as `{key: 'value', thing: true, stuff: [1,2,3]}`, and have a special **null**
 
-Now, let's see which of those are similar in Ruby, and which are different.
 
-1. Let's start with `undefined`. Type `undefined` into `pry` and hit enter.  We get an error, so `undefined` isn't defined in Ruby. In fact, Ruby doesn't have an undefined type - we'll just get this same error message if Ruby doesn't know a value for a variable.
+**Now, let's _experiment_ to see which of those are similar in Ruby, and which are different.**
 
-1. Try typing `true` or `false` into pry.  We don't get an error, so these must be defined in Ruby. In fact, these are still our **booleans**! Try typing `true.class` and `false.class` to see the Ruby class for each `TrueClass` / `FalseClass`!
+1. Let's start with `undefined`. Type `undefined` into `pry` and hit enter.  
 
-1. How about those numbers?!  Try `3.class` and `3.14.class`. Two things to note:
+  > We get an error, so `undefined` isn't defined in Ruby. In fact, Ruby doesn't have an undefined type - we'll just get this same error message if Ruby doesn't know a value for a variable.  **Remember this error message!**
+
+1. Try typing `true` or `false` into pry.  Are these defined in Ruby? How do you know?
+
+  <details><summary>click to review</summary> 
+  > We don't get an error, so these must be defined in Ruby. In fact, these are still our **booleans**! </details>
+  
+  > Try typing `true.class` and `false.class` to see the Ruby class for each: `TrueClass` / `FalseClass`!
+
+1. How about those numbers?!  Check that they're defined, then try `3.class` and `3.14.class`. 
+
+  <details><summary>click to review</summary> 
+  > Two things to note:
   - numbers with decimals are **Floats**
-  - **Integers** are divided into a few classes - here we see `FixNum`
-  <br><br>
-1. `"hello world"` is still a **String**.  Try "hanging a dot" in pry (type `"hello world".` then hit tab a few times) to see the method available for Ruby strings.
+  - **Integers** are divided into a few classes. Here we see `FixNum`. If you type in a really big number, you can see `BigNum`.
+  </details>
+  
+  
+1. `"hello world"` is still a **String** (you can check with `"hello world".class`. 
 
-1.  `[1,2,3,4]` is still an **Array**.
+  > Try "hanging a dot" in `pry` (type `"hello world"`, then hit tab a few times) to see the methods available for Ruby strings.
 
-1. `{keys: ['some', 'values'] }` is called a **Hash**, but works almost the same as a JavaScript object.  A key difference is that values inside a Hash *must* be accessed with bracket notation (try it!).
+1.  `[1,2,3,4]` is still an **Array**. Hang a dot!
 
-1. Ruby's version of `null` is `nil` (`NilClass`).
+1. `{keys: ['some', 'values'] }` is called a **Hash**, but works almost the same as a JavaScript object.  
 
-1. Ruby has an extra data type called a **Symbol**!  Symbols are like strings, except they only get stored in memory once. JavaScript recently adopted symbols. In both languages, they're often used as the keys inside objects/hashes.
+  > One main difference is that values inside a Hash *must* be accessed with bracket notation (try it!).
+
+1. Ruby's version of `null` is `nil`. What is its class?
+
+  > You'll probably see this class in error messages as a sign that something isn't defined correctly.
+
+1. Ruby has an extra data type called a **Symbol**!  
+
+  > Symbols are like strings, except they only get stored in memory once. JavaScript recently adopted symbols. In both languages, they're often used as the keys inside objects/hashes.
 
 
-Most importantly, **in Ruby, _everything_ is a reference data type**. There are no primitives! That means that each of the above data types have methods & properties just like our JavaScript objects did.
+**Most importantly, in Ruby, _everything_ is a reference data type.** There are no primitives! That means that each of the above data types have methods & properties just like our JavaScript objects did.
 
 
-#### Let's recap our data types in Ruby:
+#### Let's recap data types in Ruby:
 
 - **Booleans** are written as `true` and `false`
-- **Integers** are written as `12`
-- **Floats** are written as `9.45`
-- **Strings** are written as `"awesome"`
-- **Symbols** are written as `:awesome`
-- **Arrays** are written as `['x','y','z']`
-- **Hashes** are written as `{key: 'value', things: true, stuff: [1,2,3]}` or `{:key => 'value'}`
+- **Integers** are written like `12`
+- **Floats** are written like `9.45`
+- **Strings** are written like `"awesome"`
+- **Symbols** are written like `:awesome`
+- **Arrays** are written like `['x','y','z']`
+- **Hashes** are written like `{key: 'value', things: true, stuff: [1,2,3]}` or `{:key => 'value'}` and accessed with bracket notation (`myHash[:key]`)
 - **nil** is the equivalent of JavaScript's `null`
 
 
-### Duck Typing
-<details><summary>If it quacks like an integer... </summary>
+### Type Coersion
+
+<details><summary>Float on! </summary>
 
 Unlike JavaScript, Ruby categorizes numbers as floats or integers. This creates some interesting results! Let's take a look in PRY:
 
-What happens if we use pry to calculate `5 / 2`?
+1. What happens if we use `pry` to calculate `5 / 2`?
 
- > Have we broken Ruby? No, we have given ruby two integers (numbers with no decimal places) so ruby gives us an integer back.
+  > Have we broken Ruby? No, we have given ruby two integers (numbers with no decimal places), so ruby gives us an integer back.
 
-Compare to what happens when we divide an integer by a float, with `5 / 2.0`.
+1. Compare to what happens when we divide an integer by a float, with `5 / 2.0`.
 
+  > This is called "Type Coercion"; Ruby now knows that we want a float back.
 
-This is called "Type Coercion" and is also known as "Duck Typing"; Ruby now knows that we want a float back.
+1. We've seen a similar result with JavaScript:
 
-If an object quacks like a duck (or acts like a string), just go ahead and treat it as a duck (or a string).
+  ```js
+  '1' + 4
+  => '14'
+  ```
 
+  > What happens if you enter the code above into pry?
 
-We've seen a similar result with JavaScript:
-
-```js
-'1' + 4
-=> '14'
-```
-
-1. What happens if you enter the code above into pry?
-
-1. Expiriment with `%` and integers and floats. 
+1. Try `"rah"*3` and `5*"yay"`. What happens? Experiment!
 
 </details>
 
+
+
 ### Converting between Data Types
+
 <details><summary>`"7"` wonders what it's like to be a number</summary>
 
 If we want to convert one data type to another in Ruby, there are some built-in methods that we can use. Here are a few examples:
@@ -218,7 +244,9 @@ If we want to convert one data type to another in Ruby, there are some built-in 
 
 </details>
 
+
 ### String Interpolation
+
 <details><summary>Concatenate less.</summary>
 
 Our strings have a superpower!
@@ -227,38 +255,42 @@ One super awesome trick that you will undoubtedly use all the time comes from ou
 
 It's called **string interpolation** – and it lets us build complicated strings without having to add them together the old fashioned way.
 
-We used to have to do this:
+1. Try out this code:
 
-```ruby
-first = "Ben"
-last = "Franklin"
-first + " " + last # => Ben Franklin
-```
+  ```ruby
+  first = "Ben"
+  last = "Franklin"
+  first + " " + last # => Ben Franklin
+  ```
 
-That works, but this is way cooler:
+1. That works, but this is way cooler:
 
-```ruby
-first = "Ben"
-last = "Franklin"
-"#{first} #{last}" # => Ben Franklin
-```
+  ```ruby
+  first = "Ben"
+  last = "Franklin"
+  "#{first} #{last}" # => Ben Franklin
+  ```
 
-So so useful. It works with anything – more complex can run in those brackets, and Ruby will evaluate it and use the results in the string, just like we want!
+  So, so useful. More complex can run in those brackets, and Ruby will evaluate it and use the results in the string, just like we want!
 
-Right??  (Try out a few examples with single quotes.)
+1. But what are the limitations??  (Try out a few examples with single quotes.)
 
 </details>
 
 ### Symbols
-<details><summary>What do they mean?</summary>
-We haven't seen symbols before.  Try using Ruby's built in `.object_id` method to see the difference between symbols and strings:
 
-```ruby
-"hi".object_id # => 70359038665560
-"hi".object_id # => 70359036620120
-:hi.object_id  # => 1092828
-:hi.object_id  # => 1092828
-```
+<details><summary>What do they mean?</summary>
+
+We haven't seen symbols before.  
+
+1. Try using Ruby's built in `.object_id` method to see the difference between symbols and strings:
+
+  ```ruby
+  "hi".object_id # => 70359038665560
+  "hi".object_id # => 70359036620120
+  :hi.object_id  # => 1092828
+  :hi.object_id  # => 1092828
+  ```
 
 1. Why do you think symbols are used as the keys for hashes?
 </details>
@@ -272,13 +304,13 @@ _Unlike_ JavaScript, Ruby's variables don't need to be declared with a special r
 Where you're now used to:
 
 ```js
-var genius = "me";
+var webDeveloper = "me";
 ```
 
 We can skip right to the good stuff:
 
 ```ruby
-genius = "me"
+web_developer = "me"
 ```
 
 #### Local Variables
@@ -306,7 +338,11 @@ WAR_QUOTE = "What is it good for?" # warning: already initialized constant
 
 Constants are meant to be defined _only once_, so they're often used for things like storing application settings, or other stuff we don't intend to change.
 
-> You'll see many other conventions of Ruby as you learn it!
+
+> JavaScript's newest version recently added constants with the `const` reserved word.
+
+**You'll see many other conventions of Ruby as you learn it!**
+
 
 
 ## Research & Experiment
@@ -322,12 +358,12 @@ Conditionals were an important part of JavaScript control flow; we use `if/else 
 
 ### Loops
 
-Repeated behavior means loops!  JavaScript celebrated `for` and `while`. Ruby has many more ways to loop. Take a look at:
+Repeated behavior means loops!  JavaScript celebrated `for` and `while`, and we also had the iterator method `Array.prototype.forEach`. Ruby has many more ways to loop. Take a look at:
 
-1. <a href="http://ruby-doc.org/core-2.0.0/Integer.html#method-i-times" >`.times`</a>:  What is its JavaScript equivalent?  Can you give an example of when you would use this method to loop?
+1. <a href="http://ruby-doc.org/core-2.0.0/Integer.html#method-i-times" >`.times`</a>:  What is a JavaScript equivalent?  Can you give an example of when you would use this method to loop?
 
 2. <a href="https://ruby-doc.org/core-2.2.0/Array.html#method-i-each">`.each`</a>:
-What is its JavaScript equivalent?  Can you give an example of when you would use this method to loop?
+What is a JavaScript equivalent?  Can you give an example of when you would use this method to loop?
 
 
 ## Closing Thoughts
