@@ -32,12 +32,14 @@ Ruby is a powerful and popular language for server-side web development. It's th
 
 ## Ruby as a Second (or 4<sup>th</sup>) Language
 
-As we learn Ruby, it's important to revisit how we learned our first language and use that to organize the study of our new language. Learning our second programming language is a process of translating concepts, expressions, and patterns from our familiar language into our new language. 
+As we learn Ruby, it's important to revisit how we learned our first language and use that to organize the study of our new language. Learning our second programming language is a process of translating concepts, expressions, and patterns from our familiar language into our new language.
 
 Learning our first language involved more identification and comprehension of the knowledge required to implement our first programs. We should begin by organizing this knowledge to build a better understanding as we transition to Ruby.
 
-<details><summary>Note: Why not count HTML and CSS? *click to see more!*</summary>
-> Neither HTML nor CSS is capable of handling complex calculations alone.  We couldn't use them to implement a variety of algorithms.  Formally, computer scientists would say these languages aren't [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness#Non-mathematical_usage). The bottom line is that even though HTML and CSS are programming languages, their concepts won't transfer as well to other languages. 
+<details><summary>Note: Why not count HTML and CSS? <em>click to see more!</em></summary>
+
+> Neither HTML nor CSS is capable of handling complex calculations alone.  We couldn't use them to implement a variety of algorithms.  Formally, computer scientists would say these languages aren't [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness#Non-mathematical_usage). The bottom line is that even though HTML and CSS are programming languages, their concepts won't transfer as well to other languages.
+
 </details>
 
 ## Discussion Questions
@@ -65,7 +67,7 @@ make_a_sentence(['You', 'are', 'already', 'experts'])
 ```
 
 
-#### Check for Understanding 
+#### Check for Understanding
 
 Without knowing anything about Ruby, you can probably guess how some of this works:
 
@@ -113,7 +115,7 @@ We'll see more about each of these differences later.  For now, keep in mind tha
 
 We're going to use PRY, an interactive Ruby shell tool, so we can type some Ruby commands and see exactly what happens in real time.
 
-Open up your terminal, and from anywhere, type `gem install pry`, then type `pry`. This will change your terminal tab into an interactive ruby console. 
+Open up your terminal, and from anywhere, type `gem install pry`, then type `pry`. This will change your terminal tab into an interactive ruby console.
 
 *Other options for running ruby code:*
 
@@ -143,37 +145,42 @@ Open up your terminal, and from anywhere, type `gem install pry`, then type `pry
 
   > We get an error, so `undefined` isn't defined in Ruby. In fact, Ruby doesn't have an undefined type - we'll just get this same error message if Ruby doesn't know a value for a variable.  **Remember this error message!**
 
-1. Try typing `true` or `false` into pry.  Are these defined in Ruby? How do you know?
+2. Try typing `true` or `false` into pry.  Are these defined in Ruby? How do you know?
 
-  <details><summary>click to review</summary> 
-  > We don't get an error, so these must be defined in Ruby. In fact, these are still our **booleans**! </details>
-  
+  <details><summary>click to review</summary>
+
+  > We don't get an error, so these must be defined in Ruby. In fact, these are still our **booleans**!
+
+  </details>
+
   > Try typing `true.class` and `false.class` to see the Ruby class for each: `TrueClass` / `FalseClass`!
 
-1. How about those numbers?!  Check that they're defined, then try `3.class` and `3.14.class`. 
+3. How about those numbers?!  Check that they're defined, then try `3.class` and `3.14.class`.
 
-  <details><summary>click to review</summary> 
+  <details><summary>click to review</summary>
+
   > Two things to note:
   - numbers with decimals are **Floats**
   - **Integers** are divided into a few classes. Here we see `FixNum`. If you type in a really big number, you can see `BigNum`.
+
   </details>
-  
-  
-1. `"hello world"` is still a **String** (you can check with `"hello world".class`. 
+
+
+4. `"hello world"` is still a **String** (you can check with `"hello world".class`.
 
   > Try "hanging a dot" in `pry` (type `"hello world"`, then hit tab a few times) to see the methods available for Ruby strings.
 
-1.  `[1,2,3,4]` is still an **Array**. Hang a dot!
+5.  `[1,2,3,4]` is still an **Array**. Hang a dot!
 
-1. `{keys: ['some', 'values'] }` is called a **Hash**, but works almost the same as a JavaScript object.  
+6. `{keys: ['some', 'values'] }` is called a **Hash**, but works almost the same as a JavaScript object.  
 
   > One main difference is that values inside a Hash *must* be accessed with bracket notation (try it!).
 
-1. Ruby's version of `null` is `nil`. What is its class?
+7. Ruby's version of `null` is `nil`. What is its class?
 
   > You'll probably see this class in error messages as a sign that something isn't defined correctly.
 
-1. Ruby has an extra data type called a **Symbol**!  
+8. Ruby has an extra data type called a **Symbol**!  
 
   > Symbols are like strings, except they only get stored in memory once. JavaScript recently adopted symbols. In both languages, they're often used as the keys inside objects/hashes.
 
@@ -203,11 +210,11 @@ Unlike JavaScript, Ruby categorizes numbers as floats or integers. This creates 
 
   > Have we broken Ruby? No, we have given ruby two integers (numbers with no decimal places), so ruby gives us an integer back.
 
-1. Compare to what happens when we divide an integer by a float, with `5 / 2.0`.
+2. Compare to what happens when we divide an integer by a float, with `5 / 2.0`.
 
   > This is called "Type Coercion"; Ruby now knows that we want a float back.
 
-1. We've seen a similar result with JavaScript:
+3. We've seen a similar result with JavaScript:
 
   ```js
   '1' + 4
@@ -216,7 +223,7 @@ Unlike JavaScript, Ruby categorizes numbers as floats or integers. This creates 
 
   > What happens if you enter the code above into pry?
 
-1. Try `"rah"*3` and `5*"yay"`. What happens? Experiment!
+4. Try `"rah"*3` and `5*"yay"`. What happens? Experiment!
 
 </details>
 
@@ -224,7 +231,7 @@ Unlike JavaScript, Ruby categorizes numbers as floats or integers. This creates 
 
 ### Converting between Data Types
 
-<details><summary>`"7"` wonders what it's like to be a number</summary>
+<details><summary><code>"7"</code> wonders what it's like to be a number</summary>
 
 If we want to convert one data type to another in Ruby, there are some built-in methods that we can use. Here are a few examples:
 
@@ -253,7 +260,7 @@ Our strings have a superpower!
 
 One super awesome trick that you will undoubtedly use all the time comes from our friend, the **String** object.
 
-It's called **string interpolation** – and it lets us build complicated strings without having to add them together the old fashioned way.
+It's called **string interpolation** – and it lets us build complicated strings without having to add them together the old fashioned way. It's similar to template literals in JavaScript.
 
 1. Try out this code:
 
@@ -263,7 +270,7 @@ It's called **string interpolation** – and it lets us build complicated string
   first + " " + last # => Ben Franklin
   ```
 
-1. That works, but this is way cooler:
+2. That works, but this is way cooler:
 
   ```ruby
   first = "Ben"
@@ -273,7 +280,7 @@ It's called **string interpolation** – and it lets us build complicated string
 
   So, so useful. More complex can run in those brackets, and Ruby will evaluate it and use the results in the string, just like we want!
 
-1. But what are the limitations??  (Try out a few examples with single quotes.)
+3. But what are the limitations??  (Try out a few examples with single quotes.)
 
 </details>
 
@@ -292,7 +299,8 @@ We haven't seen symbols before.
   :hi.object_id  # => 1092828
   ```
 
-1. Why do you think symbols are used as the keys for hashes?
+2. Why do you think symbols are used as the keys for hashes?
+
 </details>
 
 ## Variables
