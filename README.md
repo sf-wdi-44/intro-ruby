@@ -180,9 +180,9 @@ Open up your terminal, and from anywhere, type `gem install pry`, then type `pry
 
   > You'll probably see this class in error messages as a sign that something isn't defined correctly.
 
-8. Ruby has an extra data type called a **Symbol**!  
+8. Ruby has an extra data type called a **Symbol**! A symbol is specified using a colon in front of a string of characters. For example `:hello` is a symbol in Ruby.  
 
-  > Symbols are like strings, except they only get stored in memory once. JavaScript recently adopted symbols. In both languages, they're often used as the keys inside objects/hashes.
+  > Symbols are like strings, except they only get stored in memory once. This means that they are less memory intensive, but they're also immutable (their value can't change). JavaScript recently adopted symbols. In both languages, they're often used as the keys inside objects/hashes.
 
 
 **Most importantly, in Ruby, _everything_ is a reference data type.** There are no primitives! That means that each of the above data types have methods & properties just like our JavaScript objects did.
@@ -278,7 +278,7 @@ It's called **string interpolation** – and it lets us build complicated string
   "#{first} #{last}" # => Ben Franklin
   ```
 
-  So, so useful. More complex can run in those brackets, and Ruby will evaluate it and use the results in the string, just like we want!
+  So, so useful. More complex code can run in those brackets, and Ruby will evaluate it and use the results in the string, just like we want!
 
 3. But what are the limitations??  (Try out a few examples with single quotes.)
 
