@@ -282,6 +282,19 @@ It's called **string interpolation** – and it lets us build complicated string
 
 3. But what are the limitations??  (Try out a few examples with single quotes.)
 
+" " allows you to do string interpolation, e.g.:
+
+  ```ruby
+  world_type = 'Mars'
+  "Hello #{world_type}"
+  ```
+'escape sequence' does not work in single quote, e.g.:
+
+  ```ruby
+  puts 'a\nb' # just print a\nb 
+  puts "a\nb" # print a, then b at newline 
+  ```
+
 </details>
 
 ### Symbols
